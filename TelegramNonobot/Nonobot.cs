@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Linq;
+using System.Collections.Generic;
 using Telegram.Bot;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types;
 
 namespace TelegramNonobot
 {
-    class Ñoñobot
+    class Nonobot
     {
         private static readonly TelegramBotClient miBot = new TelegramBotClient("1499146557:AAFwfx8t9qM4JsJ7d1Uz9Z8oXUtaBSQBuXs");
+        private static Dictionary<int, int> userStates = new Dictionary<int, int>();
 
         public static void Main(string[] args)
         {
@@ -48,10 +51,23 @@ namespace TelegramNonobot
                         $"Hola, soy Ñoñobot{EmojiList.CatWithHearts}. \n\nSi tienes alguien te ha preparado un juego escribe /evento.");
                     break;
                 case "/evento":
-                    await miBot.SendTextMessageAsync(mensaje.Chat.Id,
-                        $"Así que quieres jugar, ¿eh?. Me encanta jugar {EmojiList.CatWithHearts}. Introduce el código del juego para empezar");
+                    //Si el mensaje viene en dos partes obtenemos la segunda como código
+                    if (mensaje.Text.Split(' ').Count() > 1)
+                    {
+                        ControlEventos(mensaje, false);
+                    }
+                    else
+                    {
+                        userStates.Add(mensaje.From.Id, 0);
+                        await miBot.SendTextMessageAsync(mensaje.Chat.Id,
+                            $"Así que quieres jugar, ¿eh?. Me encanta jugar {EmojiList.CatWithHearts}. Introduce el código del juego para empezar");
+                    }                    
                     break;
                 default:
+                    if (userStates.ContainsKey(mensaje.From.Id))
+                    {
+                        ControlEventos(mensaje, true);
+                    }
                     break;
             }
         }
@@ -62,6 +78,50 @@ namespace TelegramNonobot
             Console.WriteLine("Error recibido: {0} — {1}",
                 eventoArgumentosErrorRecibidos.ApiRequestException.ErrorCode,
                 eventoArgumentosErrorRecibidos.ApiRequestException.Message);
+        }
+
+        private static async void ControlEventos(Message m, bool onlyCode)
+        {
+            var code = "";
+            //Si se especifica que viene el codigo sin comando se coge la primera separación y si viene con evento es después del espacio
+            if (onlyCode)
+            {
+                code = m.Text.Split(' ').First();           
+            }
+            else
+            {
+                code = m.Text.Split(' ')[1];
+            }
+
+            //El codigo debe empezar por e y tene una longitud de 10 caracteres para ser valido
+            if (code.StartsWith("e") && code.Count() == 10)
+            {
+                //Se activa el codigo del evento y se devuelve si ha sido correcta para enviar el mensaje adecuado
+                bool correct = ActivarEvento(code);
+                if (correct)
+                {
+                    await miBot.SendTextMessageAsync(m.Chat.Id, "Código correcto!");
+                    userStates[m.From.Id] = 1;
+                    Console.WriteLine($"El estado del usuario con id {m.From.Id} es 1");
+                }
+                else
+                {
+                    await miBot.SendTextMessageAsync(m.Chat.Id, "Lo siento, no existe un evento con ese código.");
+                }
+            }
+            else
+            {
+                await miBot.SendTextMessageAsync(m.Chat.Id, "El código introducido no es un código de evento válido. Los códigos de evento son del tipo eXXXXXXXXX");
+            }
+
+        }
+
+        private static bool ActivarEvento(string code)
+        {
+            //Si el usuario está esperando el evento
+           
+                
+            return true;
         }
     }
 }
