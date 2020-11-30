@@ -49,7 +49,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControladorEventos.cs" />
+    <Compile Include="EventManager.cs" />
     <Compile Include="EmojiList.cs" />
     <Compile Include="Nonobot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
