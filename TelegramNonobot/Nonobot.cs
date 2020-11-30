@@ -11,7 +11,7 @@ namespace TelegramNonobot
     class Nonobot
     {
         private static readonly TelegramBotClient miBot = new TelegramBotClient("1499146557:AAFwfx8t9qM4JsJ7d1Uz9Z8oXUtaBSQBuXs");
-        private static Dictionary<int, int> userStates = new Dictionary<int, int>();
+        private static Dictionary<int, Evento> userEvents = new Dictionary<int, Evento>();
 
         public static void Main(string[] args)
         {
@@ -58,16 +58,11 @@ namespace TelegramNonobot
                     }
                     else
                     {
-                        userStates.Add(mensaje.From.Id, 0);
                         await miBot.SendTextMessageAsync(mensaje.Chat.Id,
-                            $"Así que quieres jugar, ¿eh?. Me encanta jugar {EmojiList.CatWithHearts}. Introduce el código del juego para empezar");
+                            $"Así que quieres jugar, ¿eh?. Me encanta jugar {EmojiList.CatWithHearts}. Para empezar a jugar introduce el código después del comando. Mira se hace así: '/evento eXXXXXXXXX'");
                     }                    
                     break;
                 default:
-                    if (userStates.ContainsKey(mensaje.From.Id))
-                    {
-                        ControlEventos(mensaje, true);
-                    }
                     break;
             }
         }
@@ -101,8 +96,7 @@ namespace TelegramNonobot
                 if (correct)
                 {
                     await miBot.SendTextMessageAsync(m.Chat.Id, "Código correcto!");
-                    userStates[m.From.Id] = 1;
-                    Console.WriteLine($"El estado del usuario con id {m.From.Id} es 1");
+                    //userEvents[m.From.Id] = code;
                 }
                 else
                 {
@@ -118,7 +112,7 @@ namespace TelegramNonobot
 
         private static bool ActivarEvento(string code)
         {
-            //Si el usuario está esperando el evento
+            Evento e = ControladorEventos.BuildEvento();
            
                 
             return true;
