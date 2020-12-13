@@ -10,7 +10,7 @@ namespace TelegramNonobot
 {
     class Nonobot
     {
-        private static readonly TelegramBotClient miBot = new TelegramBotClient("1499146557:AAFwfx8t9qM4JsJ7d1Uz9Z8oXUtaBSQBuXs");
+        private static readonly TelegramBotClient miBot = new TelegramBotClient("1465762026:AAEptsszIHfOTcKhv-T3W3JLYk7ee7T6psQ");
 
 
         public static void Main(string[] args)
@@ -71,20 +71,20 @@ namespace TelegramNonobot
                 //Según el mensaje leído podremos hacer cualquier tarea
                 case "/start":
                     await miBot.SendTextMessageAsync(mensaje.Chat.Id,
-                        $"Estás jugando ahora mismo. Si quieres salir, escribe /close.");
+                       BotQuotes.StartInEvent);
                     break;
                 case "/close":
                     EventManager.FinishEvent(mensaje.From.Id);
                     await miBot.SendTextMessageAsync(mensaje.Chat.Id,
-                        $"Pues nada el juego ha terminado... {EmojiList.SadFace}");
+                        BotQuotes.CloseInEvent);
                     break;
                 case "/help":
                     await miBot.SendTextMessageAsync(mensaje.Chat.Id,
-                        "Help");
+                        BotQuotes.Help);
                     break;
-                case "/evento":
+                case "/event":
                     await miBot.SendTextMessageAsync(mensaje.Chat.Id,
-                        "Oye oye que ya estás en un evento, si quieres entrar a otro sal de este primero. Para salir, escribe /close.");
+                        BotQuotes.EventInEvent);
                     break;
                 case "/hint":
                     //Enviamos la siguiente pista
@@ -92,11 +92,11 @@ namespace TelegramNonobot
                     await miBot.SendTextMessageAsync(mensaje.Chat.Id, hint);
                     break;
                 default:
-                    bool correctAnswer = EventManager.CheckAnswer(answer, mensaje.From.Id);
+                    bool correctAnswer = EventManager.CheckAnswer(mensaje.Text, mensaje.From.Id);
                     if (correctAnswer)
                     {
                         await miBot.SendTextMessageAsync(mensaje.Chat.Id,
-                            "¡Clin, clin, clin! Respuesta correcta. Siguiente pista:");
+                            BotQuotes.CorrectAnswer);
                         //Enviamos la siguiente pista
                         string h = EventManager.GetNextHint(mensaje.From.Id);
                         //Si no es el texto de finalizado le da la siguiente pista
@@ -109,13 +109,13 @@ namespace TelegramNonobot
                             EventManager.FinishEvent(mensaje.From.Id);
                             //Si se ha acabado el juego, notificamos al usuario que ha ganado
                             await miBot.SendTextMessageAsync(mensaje.Chat.Id,
-                                $"¡Enhorabuena {mensaje.From.Username}!¡Has completado el juego! Espero volver a verte pronto y gracias por jugar.");
+                                BotQuotes.CompletedEvent);
                         }
                     }
                     else
                     {
                         await miBot.SendTextMessageAsync(mensaje.Chat.Id,
-                            "Nooooo... Esa no es... Si necesitas que te repita la pista escribe /hint");
+                            BotQuotes.WrongAnswer);
                     }
                     break;
             }
@@ -128,17 +128,17 @@ namespace TelegramNonobot
                 //Según el mensaje leído podremos hacer cualquier tarea
                 case "/start":
                     await miBot.SendTextMessageAsync(mensaje.Chat.Id,
-                        $"Hola, soy Ñoñobot{EmojiList.CatWithHearts}. \n\nSi tienes alguien te ha preparado un juego escribe /evento.");
+                        BotQuotes.Start);
                     break;
                 case "/close":
                     await miBot.SendTextMessageAsync(mensaje.Chat.Id,
-                        $"Pero bueno, {mensaje.From.Username}, si todavía no has empezado a jugar.");
+                        BotQuotes.Close);
                     break;
                 case "/help":
                     await miBot.SendTextMessageAsync(mensaje.Chat.Id,
-                        $"Help");
+                        BotQuotes.Help);
                     break;
-                case "/evento":
+                case "/event":
                     //Si el mensaje viene en dos partes obtenemos la segunda como código
                     if (mensaje.Text.Split(' ').Count() > 1)
                     {
@@ -147,7 +147,7 @@ namespace TelegramNonobot
                     else
                     {
                         await miBot.SendTextMessageAsync(mensaje.Chat.Id,
-                            $"Así que quieres jugar, ¿eh?. Me encanta jugar {EmojiList.CatWithHearts}. Para empezar a jugar introduce el código después del comando. Mira se hace así: '/evento eXXXXXXXXX'");
+                            BotQuotes.Event);
                     }
                     break;
                 default:
@@ -176,12 +176,12 @@ namespace TelegramNonobot
                 }
                 else
                 {
-                    await miBot.SendTextMessageAsync(m.Chat.Id, "Lo siento, no existe un evento con ese código.");
+                    await miBot.SendTextMessageAsync(m.Chat.Id, BotQuotes.WrongCode);
                 }
             }
             else
             {
-                await miBot.SendTextMessageAsync(m.Chat.Id, "El código introducido no es un código de evento válido. Los códigos de evento son del tipo eXXXXXXXXX");
+                await miBot.SendTextMessageAsync(m.Chat.Id, BotQuotes.NotValidCode);
             }
 
         }

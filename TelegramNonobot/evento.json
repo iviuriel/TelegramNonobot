@@ -1,41 +1,41 @@
-{
+ï»¿{
   "code": "e910209080",
-  "intro": "¡Hola! Iván ha preparado un pequeño juego navideño para ti y yo te voy a ayudar (Ay que ilusión). Te voy a ir dando unas pistas para encontrar unas tarjetas y tendrás que ir introduciendo las respuestas hasta llegar al final. Aquí va la primera pista:",
+  "intro": "Â¡Hola! IvÃ¡n ha preparado un pequeÃ±o juego navideÃ±o para ti y yo te voy a ayudar (Ay que ilusiÃ³n). Te voy a ir dando unas pistas para encontrar unas tarjetas y tendrÃ¡s que ir introduciendo las respuestas hasta llegar al final. AquÃ­ va la primera pista:",
   "elements": [
     {
-      "hint": "Escuche a una cerveza decir que tenía información sobre tu regalo",
-      "answer": "champiñon"
+      "hint": "Escuche a una cerveza decir que tenÃ­a informaciÃ³n sobre tu regalo",
+      "answer": "champiÃ±on"
     },
     {
-      "hint": "¿Champiñon? Eso me recuerda a un personaje de un juego, ¿a ti no?",
+      "hint": "Â¿ChampiÃ±on? Eso me recuerda a un personaje de un juego, Â¿a ti no?",
       "answer":  "disney"
     },
     {
-      "hint": "Mulan 1:18:32. Esto es lo único que aparece en mi base de datos",
-      "answer":  "la flor que florece en la adversidad es la más excepcional y bonita de todas"
+      "hint": "Mulan 1:18:32. Esto es lo Ãºnico que aparece en mi base de datos",
+      "answer":  "la flor que florece en la adversidad es la mÃ¡s excepcional y bonita de todas"
     },
     {
-      "hint": "Vaya, así que era todo eso la respuesta. Pues aquí tienes la siguiente pista: 'Newton declaró, yo caí, moratón produje y al estante volví'",
+      "hint": "Vaya, asÃ­ que era todo eso la respuesta. Pues aquÃ­ tienes la siguiente pista: 'Newton declarÃ³, yo caÃ­, moratÃ³n produje y al estante volvÃ­'",
       "answer":  "sumimasen"
     },
     {
-      "hint": "Oh, solo quería disculparse. Bueno, al lío, la siguiente pista es: 'Me encanta estas palabras cada noche'",
+      "hint": "Oh, solo querÃ­a disculparse. Bueno, al lÃ­o, la siguiente pista es: 'Me encanta estas palabras cada noche'",
       "answer":  "always"
     },
     {
-      "hint": "Alguien ha enviado un mensaje codificado: 'Sácame de aquí...oscuro...huele...Navidad",
+      "hint": "Alguien ha enviado un mensaje codificado: 'SÃ¡came de aquÃ­...oscuro...huele...Navidad",
       "answer":  "the child"
     },
     {
-      "hint": "¡Enhorabuena! Encontraste a The Child pero dice que su amigo sigue perdido, la última vez que lo vió estaban en una caja.",
+      "hint": "Â¡Enhorabuena! Encontraste a The Child pero dice que su amigo sigue perdido, la Ãºltima vez que lo viÃ³ estaban en una caja.",
       "answer":  "fnac"
     },
     {
-      "hint": "Muy bien. Iván me ha dicho que mires en el otro sitio donde no te dejaba mirar.",
+      "hint": "Muy bien. IvÃ¡n me ha dicho que mires en el otro sitio donde no te dejaba mirar.",
       "answer":  "pulpito"
     },
     {
-      "hint": "Por fin están de nuevo juntos. Pero este no es el final, utiliza las tarjetas que has guardado y para descrubrir el lugar donde todo empezó",
+      "hint": "Por fin estÃ¡n de nuevo juntos. Pero este no es el final, utiliza las tarjetas que has guardado y para descrubrir el lugar donde todo empezÃ³",
       "answer":  "valencia"
     }
 
