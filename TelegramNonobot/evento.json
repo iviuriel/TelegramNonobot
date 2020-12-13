@@ -1,14 +1,42 @@
 {
   "code": "e910209080",
-  "intro": "¡Hola! Tu juego ha empezado y yo te voy a ayudar (Ay que ilusión). Te voy a ir dando unas pistas para encontrar unas tarjetas y tendrás que ir introduciendo el código hasta llegar al final. Aquí va la primera pista:",
+  "intro": "¡Hola! Iván ha preparado un pequeño juego navideño para ti y yo te voy a ayudar (Ay que ilusión). Te voy a ir dando unas pistas para encontrar unas tarjetas y tendrás que ir introduciendo las respuestas hasta llegar al final. Aquí va la primera pista:",
   "elements": [
     {
-      "hint": "Soy una prueba de pista que pasa?",
-      "answer": "patata"
+      "hint": "Escuche a una cerveza decir que tenía información sobre tu regalo",
+      "answer": "champiñon"
     },
     {
-      "hint": "ostia la segunda pista",
-      "answer":  "child"
+      "hint": "¿Champiñon? Eso me recuerda a un personaje de un juego, ¿a ti no?",
+      "answer":  "disney"
+    },
+    {
+      "hint": "Mulan 1:18:32. Esto es lo único que aparece en mi base de datos",
+      "answer":  "la flor que florece en la adversidad es la más excepcional y bonita de todas"
+    },
+    {
+      "hint": "Vaya, así que era todo eso la respuesta. Pues aquí tienes la siguiente pista: 'Newton declaró, yo caí, moratón produje y al estante volví'",
+      "answer":  "sumimasen"
+    },
+    {
+      "hint": "Oh, solo quería disculparse. Bueno, al lío, la siguiente pista es: 'Me encanta estas palabras cada noche'",
+      "answer":  "always"
+    },
+    {
+      "hint": "Alguien ha enviado un mensaje codificado: 'Sácame de aquí...oscuro...huele...Navidad",
+      "answer":  "the child"
+    },
+    {
+      "hint": "¡Enhorabuena! Encontraste a The Child pero dice que su amigo sigue perdido, la última vez que lo vió estaban en una caja.",
+      "answer":  "fnac"
+    },
+    {
+      "hint": "Muy bien. Iván me ha dicho que mires en el otro sitio donde no te dejaba mirar.",
+      "answer":  "pulpito"
+    },
+    {
+      "hint": "Por fin están de nuevo juntos. Pero este no es el final, utiliza las tarjetas que has guardado y para descrubrir el lugar donde todo empezó",
+      "answer":  "valencia"
     }
 
   ]
