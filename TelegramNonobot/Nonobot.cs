@@ -10,7 +10,7 @@ namespace TelegramNonobot
 {
     class Nonobot
     {
-        private static readonly TelegramBotClient miBot = new TelegramBotClient("1465762026:AAEptsszIHfOTcKhv-T3W3JLYk7ee7T6psQ");
+        private static readonly TelegramBotClient miBot = new TelegramBotClient("");
 
 
         public static void Main(string[] args)
