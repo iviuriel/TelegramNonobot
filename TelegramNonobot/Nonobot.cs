@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using Telegram.Bot;
@@ -10,11 +11,16 @@ namespace TelegramNonobot
 {
     class Nonobot
     {
-        private static readonly TelegramBotClient miBot = new TelegramBotClient("");
 
+        private static TelegramBotClient miBot;
+        private static string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+        private static string srcToken = Path.Combine(projectDirectory, "TOKEN.txt");
 
         public static void Main(string[] args)
         {
+            //Obtenemos el token del bot y lo creamos
+            string tokenString = System.IO.File.ReadAllText(srcToken);
+            miBot =  new TelegramBotClient(tokenString);
             //Escuchamos los mensajes enviados en los grupos donde esté el bot
             var me = miBot.GetMeAsync().Result;
             Console.Title = "Conectado a bot de Telegram " + me.Username;
@@ -187,6 +193,8 @@ namespace TelegramNonobot
         }
 
         private static bool ActivateEvent(string code, int idUsuario){ return EventManager.SetEvent(code, idUsuario);}
+
+        public static string GetProjectDirectory() { return projectDirectory; }
 
         
     }

@@ -10,24 +10,33 @@ namespace TelegramNonobot
 {
     class EventManager
     {
-        private static string src = "../../evento.json";
+        private static string srcEvents = Path.Combine(Nonobot.GetProjectDirectory(), @"Events\", "{0}.json");
         private static Dictionary<int, Event> userEvents = new Dictionary<int, Event>();
 
         public static readonly string FINISH_TEXT = "FINISH";
 
         public static bool SetEvent(string code, int id)
         {
-            string jsonString = File.ReadAllText(src);
-            Event e = JsonConvert.DeserializeObject<Event>(jsonString);
-            if(e.Code == code)
+            string path = String.Format(srcEvents, code);
+
+            if (File.Exists(path))
             {
-                userEvents.Add(id, e);
-                return true;
+                string jsonString = File.ReadAllText(path);
+                Event e = JsonConvert.DeserializeObject<Event>(jsonString);
+                if (e.Code == code)
+                {
+                    userEvents.Add(id, e);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
                 return false;
-            }
+            }           
         }
 
         public static bool IsUserPlaying(int id)

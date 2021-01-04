@@ -14,7 +14,7 @@ namespace TelegramNonobot
         public static readonly string Close = "Pero bueno, si todavía no has empezado a jugar.";
         public static readonly string CloseInEvent = $"Pues nada el juego ha terminado... {EmojiList.SadFace}";
 
-        public static readonly string Event = $"Así que quieres jugar, ¿eh?. Me encanta jugar {EmojiList.CatWithHearts}. Para empezar a jugar introduce el código después del comando. Mira se hace así: '/evento eXXXXXXXXX'";
+        public static readonly string Event = $"Así que quieres jugar, ¿eh?. Me encanta jugar {EmojiList.CatWithHearts}. Para empezar a jugar introduce el código después del comando. Mira se hace así: '/event eXXXXXXXXX'";
         public static readonly string EventInEvent = "Oye oye que ya estás en un evento, si quieres entrar a otro sal de este primero. Para salir, escribe /close.";
 
         public static readonly string WrongCode = "Lo siento, no existe un evento con ese código.";
